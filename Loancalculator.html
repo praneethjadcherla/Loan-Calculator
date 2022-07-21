@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Calculator</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+<div class="jumbotron text-center">
+<h2><b>Loan Calculator</b></h2><br>
+</div>
+
+<form action="PrintOutput.jsp" class="text-center" id="inputform" onsubmit="return validateForm()">
+    <label for="amount">Loan Amount:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="amount" name="amount"><br><br>
+    <label for="interest">Annual Interest Rate:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="interest" name="interestrate"><br><br>
+    <label for="period">Loan Period in Months:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="period" name="period"><br><br>
+    <br>
+    <button>Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+  </form>
+  
+  <script>
+  function validateForm() {
+  	var x = document.forms["inputform"]["amount"].value;
+  	var y = document.forms["inputform"]["interestrate"].value;
+  	var z = document.forms["inputform"]["period"].value;
+  	
+  	if (x == ""|| y==""|| z=="") {
+    	alert("This field cannot be empty");
+    	return false;
+ 		 }
+  	
+  	if(isNaN(x)||isNaN(y)||isNaN(z)){
+  		alert("Please enter a number..!!");
+  		return false;
+  	}
+  	
+  	if(y>100){
+  		alert("Interest Rate should be less than 100");
+  		return false;	
+  	}
+  	
+  	
+  }
+  </script>
+
+</body>
+</html>
